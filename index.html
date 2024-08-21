@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Patients</title>
+    <script src="./index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="navbar">
+      <img
+        src="./TestLogo.png"
+        alt="TestLogo"
+        height="35"
+        style="margin: 5px"
+      />
+      <ul id="navbarOptions">
+        <li><i class="fas fa-home"></i>Home</li>
+        <li class="active"><i class="fas fa-person"></i>Patients</li>
+        <li><i class="fas fa-calendar"></i>Schedule</li>
+        <li><i class="fas fa-message"></i>Message</li>
+        <li><i class="fas fa-bank"></i>Transactions</li>
+      </ul>
+      <div id="womanDoctor">
+        <img
+          src="./senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.jpg"
+          alt="senior-woman-doctor"
+          id="seniorWomanDoctor"
+        />
+        <span>
+          &nbsp Dr. Jose Simmons
+          <br />
+          <span style="color: grey"> &nbsp General Practitioner</span>
+        </span>
+      </div>
+      <hr />
+      <img
+        src="./settings_FILL0_wght300_GRAD0_opsz24.jpg"
+        alt="setting icon"
+        height="25"
+        id="settingIcon"
+      />
+      <img
+        src="./more_vert_FILL0_wght300_GRAD0_opsz24.jpg"
+        alt="threedots"
+        height="25"
+        id="threedots"
+      />
+    </div>
+    <main>
+      <section id="patientsList">
+        <div style="display: flex; padding: 5px">
+          <span style="font-size: 25px; flex-grow: 1">Patients</span>
+          <i
+            class="fas fa-search"
+            style="flex-shrink: 0; margin-left: 10px; margin-top: 5px"
+          ></i>
+        </div>
+        <ul id="profileList" class="profile-list"></ul>
+      </section>
+      <section >
+       <div id="dashboard">
+        <h3>Diagnosis History</h3>
+        <div id="mainChartContainer">
+          <div
+            style="display: flex; justify-content: space-between; width: 25vw"
+          >
+            <p style="font-weight: 400">Blood Pressure</p>
+            <p style="font-size: small">Last 6 Months</p>
+          </div>
+          <div class="chart-container">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+        <div class="vitals">
+            <div class="vital">
+                <p>Respiratory Rate</p>
+                <h2>20 bpm</h2>
+                <p>Normal</p>
+            </div>
+            <div class="vital">
+                <p>Temperature</p>
+                <h2>98.6°F</h2>
+                <p>Normal</p>
+            </div>
+            <div class="vital">
+                <p>Heart Rate</p>
+                <h2>78 bpm</h2>
+                <p>Lower than Average</p>
+            </div>
+        </div>
+       </div>
+        <div id="DiagnosticList">
+            <h3>Diagnostic List</h3>
+            <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem/Diagnosis</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+      </section>
+      <div id="patientDetail">
+        <div id="profile">
+            <img src="./senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.jpg" alt='df' style="align-items: center;"> 
+            <p>Name here</p>
+            <div>
+               <p><i class="fas fa-person"></i>
+                <span>
+                    <span>Gender</span><br>
+                    <span>Female</span>
+                </span></p> 
+            </div>
+        </div>
+        <div id="labResults">
+          <h2>Lab Results</h2>
+          <ul id="reports"></ul>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
