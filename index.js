@@ -11,96 +11,60 @@ function fetchProfileData() {
     fetch("https://fedskillstest.coalitiontechnologies.workers.dev", { headers })
         .then(response => response.json())
         .then(data => {
-        populateProfileList(data);
-        // populateProfileAside(data[3]);
+         populateProfileList(data);
          labResults(data[3].lab_results)
          renderChart(data[3].diagnosis_history.slice(0,6).reverse());
-         populateTable(data[3].diagnostic_list)
-        //  console.log(data[3].diagnosis_history)
+         populateTable(data[3].diagnostic_list);
+         populateVitals(data[3].diagnosis_history[0]);
+         populateBloodPressure(data[3].diagnosis_history[0].blood_pressure);
+         updateProfile(data[3])
         })
         .catch(error => console.error("Error:", error));
 }
 
-function populateProfileAside(data) {
-    const aside = document.getElementById('profile');
-    
-    const img = document.createElement('img');
-    img.src = data.profile_picture;
-    img.alt = data.name;
-    img.className = 'profile-pic';
-    
-    const profileInfoDiv = document.createElement('div');
-    profileInfoDiv.className = 'profile-info';
-    
-    const nameElement = document.createElement('p');
-    nameElement.textContent = data.name;
-    profileInfoDiv.appendChild(img);
-    profileInfoDiv.appendChild(nameElement);
-    
-    const detailsDiv = document.createElement('div');
-    detailsDiv.className = 'details';
-    
-    const dobElement = document.createElement('p');
-    dobElement.className = 'label';
-    dobElement.textContent = 'Date of Birth';
-    const dobInfo = document.createElement('p');
-    let dateObj = new Date(data.date_of_birth);
-    let options = { year: 'numeric', month: 'short', day: 'numeric' };
-    dobInfo.textContent = dateObj.toLocaleDateString('en-US', options);
-    dobInfo.className = 'value';
-    
-    const genderElement = document.createElement('p');
-    genderElement.className = 'label';
-    genderElement.textContent = 'Gender';
-    const genderInfo = document.createElement('p');
-    genderInfo.textContent = data.gender;
-    genderInfo.className = 'value';
-    
-    const contactElement = document.createElement('p');
-    contactElement.className = 'label';
-    contactElement.textContent = 'Contact Info';
-    const contactInfo = document.createElement('p');
-    contactInfo.textContent = data.phone_number;
-    contactInfo.className = 'value';
-    
-    const emergencyElement = document.createElement('p');
-    emergencyElement.className = 'label';
-    emergencyElement.textContent = 'Emergency Contact';
-    const emergencyInfo = document.createElement('p');
-    emergencyInfo.textContent = data.emergency_contact;
-    emergencyInfo.className = 'value';
-    
-    const insuranceElement = document.createElement('p');
-    insuranceElement.className = 'label';
-    insuranceElement.textContent = 'Insurance Provider';
-    const insuranceInfo = document.createElement('p');
-    insuranceInfo.textContent = data.insurance_type;
-    insuranceInfo.className = 'value';
-    
-    detailsDiv.appendChild(dobElement);
-    detailsDiv.appendChild(dobInfo);
-    detailsDiv.appendChild(genderElement);
-    detailsDiv.appendChild(genderInfo);
-    detailsDiv.appendChild(contactElement);
-    detailsDiv.appendChild(contactInfo);
-    detailsDiv.appendChild(emergencyElement);
-    detailsDiv.appendChild(emergencyInfo);
-    detailsDiv.appendChild(insuranceElement);
-    detailsDiv.appendChild(insuranceInfo);
-    
-    const showMoreButton = document.createElement('button');
-    showMoreButton.className = 'show-more';
-    showMoreButton.textContent = 'Show All Information';
-    
-    aside.appendChild(profileInfoDiv);
-    aside.appendChild(detailsDiv);
-    aside.appendChild(showMoreButton);
+function populateVitals(obj) {
+    const respiratory = document.getElementById("res");
+    const respiratoryResult = document.getElementById("resRes");
+    const temp = document.getElementById('temp')
+    const tempResult = document.getElementById('tempResult')
+    const heart = document.getElementById('heart');
+    const hearResult = document.getElementById('heartResult')
+    respiratory.textContent = `${obj.respiratory_rate.value} bpm`;
+    respiratoryResult.textContent = obj.respiratory_rate.levels;
+    temp.textContent = `${obj.temperature.value} °F`;
+    tempResult.textContent = obj.temperature.levels;
+    heart.textContent = `${obj.heart_rate.value} bpm`;
+    hearResult.textContent = obj.heart_rate.levels
 }
 
+function updateProfile(data) {
+    document.querySelector('.profile-picture').src = data.profile_picture;
+    
+    document.querySelector('.name').textContent = data.name;
+  
+    document.querySelectorAll('.info .info-value')[0].textContent = new Date(data.date_of_birth).toDateString();
+  
+    document.querySelectorAll('.info .info-value')[1].textContent = data.gender;
+  
+    document.querySelectorAll('.info .info-value')[2].textContent = data.phone_number;
+  
+    document.querySelectorAll('.info .info-value')[3].textContent = data.emergency_contact;
+  
+    document.querySelectorAll('.info .info-value')[4].textContent = data.insurance_type;
+  }
+function populateBloodPressure(obj){
+    const systolicValue = document.getElementById('systolicValue');
+    const systolicLevel = document.getElementById('systolicLevel');
+    const DiastolicValue = document.getElementById('DiastolicValue');
+    const DiastolicLevel = document.getElementById('DiastolicLevel')
+    systolicValue.textContent = obj.systolic.value;
+    systolicLevel.textContent = obj.systolic.levels;
+    DiastolicValue.textContent = obj.diastolic.value;
+    DiastolicLevel.textContent = obj.diastolic.levels;
+
+}
 function populateProfileList(profiles) {
     const profileList = document.getElementById("profileList");
-    profileList.innerHTML = ''; // Clear previous content
-
     profiles.forEach(profile => {
         const listItem = document.createElement("li");
         const img = document.createElement("img");

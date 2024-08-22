@@ -1,10 +1,9 @@
 
-        /* Container for the chart */
         .chart-container {
-            width: 30vw; /* 35% of the viewport width */
-            margin: 0 ; /* Center the container horizontally */
-            padding: 0px; /* Add padding around the container */
-            box-sizing: border-box; /* Include padding in the width calculation */
+            width: 30vw;
+            margin: 0 ;
+            padding: 0px;
+            box-sizing: border-box;
             height: 22vh;
         }
 
@@ -14,9 +13,8 @@
 
         /* Style for the canvas element */
         canvas {
-            width: 100%; /* Make the canvas take up the full width of the container */
-            height: auto; /* Maintain aspect ratio */
-            /* background-color: #F4F0FE; */
+            width: 100%;
+            height: auto;
         }
         #mainChartContainer{
             background-color: #F4F0FE ;
@@ -24,7 +22,6 @@
             height: 30vh;
         }
 
-        /* Basic body and main styling */
         body {
             background-color: #F6F7F8;
             font-family: "Manrope", sans-serif;
@@ -67,8 +64,8 @@
             cursor: pointer;
             border-radius: 40px;
             flex: 1;
-            height: 4vh;
-            padding-top: 2vh;
+            height: 3vh;
+            padding-top: 1vh;
             text-align: center;
         }
 
@@ -77,7 +74,7 @@
         }
 
         #seniorWomanDoctor {
-            margin-left: 10vw;
+            margin-left: 15vw;
             height: 30px;
         }
 
@@ -87,16 +84,17 @@
 
         #settingIcon {
             position: relative;
-            top: 10px;
-            left: -40px;
+            top: 5px;
+            left: 10px;
             cursor: pointer;
         }
 
         #threedots {
             position: relative;
-            top: 10px;
-            left: -20px;
+            top: 5px;
+            right: -30px;
             cursor: pointer;
+            font-size: 3vh;
         }
 
         #patientsList {
@@ -106,16 +104,6 @@
             border-radius: 30px;
             padding: 10px;
             overflow: hidden;
-        }
-
-        #profile {
-            height: 50vh;
-            border-radius: 30px;
-            background-color: #fff;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .profile-list {
@@ -156,29 +144,21 @@
             padding-left: 2vw;
             padding-right: 2vw;
         }
-        #DiagnosticList{
-            height: 25vh;
-            width: 50vw;
-            background-color: white;
-            border-radius: 30px;
-            padding-left: 2vw;
-            padding-right: 2vw;
-        }
-
         
         #patientDetail {
             width: 25vw;
-            height: 85vh;
             padding: 5px;
-            /* border: 1px solid black; */
+            display: flex;
+            flex-direction: column;
         }
-
+            /* Lab Result CSS STARTS */
         #labResults {
-            height: 35vh;
+            height: 24vh;
             border-radius: 30px;
             background-color: #fff;
-            padding: 2px;
-            margin-top: 3vh      
+            margin-top: 1vh ;
+            overflow:scroll;
+            padding: auto;
         }
 
         #reports {
@@ -189,7 +169,7 @@
             display: flex;
             align-items: center; 
             justify-content: space-between; 
-            padding: 5px; 
+            margin-right: 10px;
         }
 
         .labResultElement:not(:first-child) {
@@ -197,16 +177,17 @@
         }
 
         .downloadIcon {
-            width: 16px; /* Adjust the size of the icon as needed */
-            height: 16px; /* Adjust the size of the icon as needed */
-            margin-left: 10px; /* Space between the text and the icon */
-            cursor: pointer; /* Pointer cursor on hover */
+            width: 16px;
+            height: 16px;
+            margin-left: 10px; 
+            cursor: pointer;
         }
+        /* Lab Result CSS ENDS */
 
-
+        /* VITALS CSS STARTS */
         .vitals {
             display: flex;
-            gap:40px;
+            gap:59px;
             margin-top: 20px;
             box-sizing: border-box;
         }
@@ -228,7 +209,19 @@
         .vital:last-child{
             background-color: #FFE6F1;
         }
+        /* VITALS Result CSS END */
 
+        /* DIANOSTICLIST CSS START */
+        #DiagnosticList{
+            height: 19vh;
+            width: 50vw;
+            background-color: white;
+            border-radius: 30px;
+            padding:2vw;
+            padding-top: 0;
+            overflow: hidden;
+            margin-top: 2vh;
+        }
 
         .table-container {
             width: 50vw;
@@ -251,7 +244,58 @@
         }
 
         .description-cell {
-            max-width: 300px; /* Adjust as needed */
+            max-width: 300px;
             overflow: auto;
-            white-space: wrap; /* Prevents wrapping of long text */
+            white-space: wrap;
         }
+
+        /* DIANOSTICLIST CSS END */
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            height: 60vh;
+            overflow: scroll;
+          }
+          
+          .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+          }
+
+          
+          .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+          .info-value{
+            color:black
+          }
+          .info-icon {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+          
+          .info-text {
+            font-size: 16px;
+            color:grey
+          }
+          
+          .button {
+            background-color: #01F0D0;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+          }
+
