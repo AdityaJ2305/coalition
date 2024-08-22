@@ -15,7 +15,7 @@
   <body>
     <div id="navbar">
       <img
-        src="./TestLogo.png"
+        src="./assets/TestLogo.png"
         alt="TestLogo"
         height="35"
         style="margin: 5px"
@@ -29,7 +29,7 @@
       </ul>
       <div id="womanDoctor">
         <img
-          src="./senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.jpg"
+          src="./assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.jpg"
           alt="senior-woman-doctor"
           id="seniorWomanDoctor"
         />
@@ -39,12 +39,7 @@
           <span style="color: grey"> &nbsp General Practitioner</span>
         </span>
       </div>
-      <img
-        src="./settings_FILL0_wght300_GRAD0_opsz24.jpg"
-        alt="setting icon"
-        height="25"
-        id="settingIcon"
-      />
+      <i class="fas fa-cog" id="settingIcon"></i>
       <i class="fas fa-ellipsis-v" id="threedots"></i>
     </div>
     <main>
@@ -127,34 +122,50 @@
       </section>
       <div id="patientDetail">
         <div class="container">
-          <img src="https://picsum.photos/200" alt="Profile Picture" class="profile-picture">
-          <h2 class="name">Jessica Taylor</h2>
-          <div class="info">
-            <span class="info-icon">📅</span>
-            <span class="info-text">Date Of Birth<br>
-              <span class="info-value">August 23, 1996</span></span>
-          </div>
-        
-          <div class="info">
-            <span class="info-icon">🪃</span>
-            <span class="info-text">Gender<br><span class="info-value">August 23, 1996</span></span>
-          </div>
-        
-          <div class="info">
-            <span class="info-icon">📞</span>
-            <span class="info-text">Contact Info.<br><span class="info-value">August 23, 1996</span></span>
-          </div>
-        
-          <div class="info">
-            <span class="info-icon">📞</span>
-            <span class="info-text">Emergency Contacts<br><span class="info-value">August 23, 1996</span></span>
-          </div>
-        
-          <div class="info">
-            <span class="info-icon">🛡️</span>
-            <span class="info-text">Insurance Provider<br><span class="info-value">August 23, 1996</span></span>
-          </div>
-        
+          <img  alt="Profile Picture" class="profile-picture">
+          <h2 class="profileName"></h2>
+          <table class="info-table">
+            <tr>
+              <td class="info-icon-cell"><span class="info-icon">📅</span></td>
+              <td class="info-label-cell">
+                <span class="info-text">Date Of Birth</span>
+                <br>
+                <span class="info-value" id="date-of-birth"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="info-icon-cell"><span class="info-icon"><i class="fas fa-female"></i></span></td>
+              <td class="info-label-cell">
+                <span class="info-text">Gender</span>
+                <br>
+                <span class="info-value" id="gender"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="info-icon-cell"><span class="info-icon">📞</span></td>
+              <td class="info-label-cell">
+                <span class="info-text">Contact Info.</span>
+                <br>
+                <span class="info-value" id="phone-number"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="info-icon-cell"><span class="info-icon">📞</span></td>
+              <td class="info-label-cell">
+                <span class="info-text">Emergency Contacts</span>
+                <br>
+                <span class="info-value" id="emergency-contact"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="info-icon-cell"><span class="info-icon">🛡️</span></td>
+              <td class="info-label-cell">
+                <span class="info-text">Insurance Provider</span>
+                <br>
+                <span class="info-value" id="insurance-type"></span>
+              </td>
+            </tr>
+          </table>
           <button class="button">Show All Information</button>
         </div>
         <div id="labResults">

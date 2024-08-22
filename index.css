@@ -84,14 +84,14 @@
 
         #settingIcon {
             position: relative;
-            top: 5px;
+            top: 10px;
             left: 10px;
             cursor: pointer;
         }
 
         #threedots {
             position: relative;
-            top: 5px;
+            top: 7px;
             right: -30px;
             cursor: pointer;
             font-size: 3vh;
@@ -127,7 +127,10 @@
             height: 50px;
             margin-right: 10px;
         }
-
+        .gender-age {
+            font-size: 12px;
+            color: #888; 
+        }
         .profile-list .name {
             flex: 1;
         }
@@ -241,7 +244,7 @@
 
         th {
             background-color: #f4f4f4;
-        }
+        } 
 
         .description-cell {
             max-width: 300px;
@@ -258,7 +261,6 @@
             padding: 20px;
             text-align: center;
             height: 60vh;
-            overflow: scroll;
           }
           
           .profile-picture {
@@ -268,13 +270,6 @@
             margin-bottom: 10px;
           }
 
-          
-          .info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-          }
           .info-value{
             color:black
           }
@@ -282,7 +277,9 @@
             font-size: 20px;
             margin-right: 10px;
           }
-          
+          .info-icon-cell{
+            padding: 5px;
+          }
           .info-text {
             font-size: 16px;
             color:grey
@@ -296,6 +293,12 @@
             border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 20px;
+            margin-top: 0px;
           }
 
+          @media (max-width: 1150px) {
+            #navbarOptions {
+                gap: 10px;
+            }
+        
+        }
